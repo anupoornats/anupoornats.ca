@@ -563,40 +563,66 @@
       border: none;
     }
 
-    /* TESTIMONIALS */
-    .testimonials { background: var(--warm-white); }
+    /* REVIEWS CAROUSEL */
+    .review-carousel-wrapper {
+      overflow: hidden;
+      margin-top: 52px;
+      position: relative;
+    }
 
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 60px;
+    .review-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform;
+      align-items: stretch;
     }
 
     .review-card {
+      min-width: calc(33.333% - 18px);
+      max-width: calc(33.333% - 18px);
+      margin: 0 9px;
+      flex-shrink: 0;
       background: white;
       border-radius: 20px;
-      padding: 32px;
+      padding: 28px;
       border: 1px solid rgba(232,128,26,0.1);
-      transition: transform 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
     }
 
-    .review-card:hover { transform: translateY(-3px); }
+    .review-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(232,128,26,0.1);
+    }
+
+    .review-text {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+      font-style: italic;
+      margin-bottom: 20px;
+      font-weight: 300;
+      flex-grow: 1;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+    }
+
+    @media (max-width: 900px) {
+      .review-card {
+        min-width: calc(85% - 18px);
+        max-width: calc(85% - 18px);
+      }
+    }
 
     .review-stars {
       color: var(--saffron);
       font-size: 1rem;
       margin-bottom: 16px;
       letter-spacing: 2px;
-    }
-
-    .review-text {
-      font-size: 0.95rem;
-      color: var(--text-mid);
-      line-height: 1.7;
-      font-style: italic;
-      margin-bottom: 20px;
-      font-weight: 300;
     }
 
     .review-author {
@@ -1057,7 +1083,7 @@
     </div>
     <div class="hero-stats">
       <div class="stat-item">
-        <div class="stat-num">140<span>+</span></div>
+        <div class="stat-num">170<span>+</span></div>
         <div class="stat-label">Happy Customers</div>
       </div>
       <div class="stat-item">
@@ -1229,7 +1255,7 @@
         <ul class="plan-items">
           <li>5 days per week</li>
           <li>1 day non-veg, 4 days veg</li>
-          <li>Chicken or fish on non-veg day</li>
+          <li>Chicken, fish, mutton or shrimp on non-veg day</li>
           <li>Rice & roti on request</li>
           <li>GTA-wide delivery</li>
         </ul>
@@ -1342,42 +1368,109 @@
   <div style="text-align:center;">
     <div class="section-label">Customer Love</div>
     <h2 class="section-title">What Our Customers Say</h2>
-    <p class="section-sub" style="margin: 0 auto;">Join 140+ happy families across the GTA enjoying authentic South Indian home cooking every week.</p>
+    <p class="section-sub" style="margin: 0 auto;">Join 170+ happy families across the GTA enjoying authentic South Indian home cooking every week.</p>
   </div>
-  <div class="reviews-grid">
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Finally found a tiffin service that actually tastes like home. The sambar and rasam are exactly what I grew up eating in Chennai. Delivery is always on time."</p>
-      <div class="review-author">
-        <div class="author-avatar">👩</div>
-        <div>
-          <div class="author-name">Priya S.</div>
-          <div class="author-area">Mississauga</div>
+
+  <div class="review-carousel-wrapper">
+    <div class="review-track" id="reviewTrack">
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Finally found a tiffin service that actually tastes like home. The sambar and rasam are exactly what I grew up eating in Chennai. Delivery is always on time."</p>
+        <div class="review-author">
+          <div class="author-avatar">👩</div>
+          <div><div class="author-name">Priya S.</div><div class="author-area">Mississauga</div></div>
         </div>
       </div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"As a working professional, cooking every day was exhausting. Anupoorna saves me so much time and the food is genuinely delicious. The non-veg days are my favourite."</p>
-      <div class="review-author">
-        <div class="author-avatar">👨</div>
-        <div>
-          <div class="author-name">Karthik R.</div>
-          <div class="author-area">Brampton</div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"As a working professional, cooking every day was exhausting. Anupoorna saves me so much time and the food is genuinely delicious. The non-veg days are my favourite."</p>
+        <div class="review-author">
+          <div class="author-avatar">👨</div>
+          <div><div class="author-name">Karthik R.</div><div class="author-area">Brampton</div></div>
         </div>
       </div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"I was skeptical at first but the trial week convinced me immediately. Fresh, healthy, affordable. I've been a customer for 6 months and never looked back."</p>
-      <div class="review-author">
-        <div class="author-avatar">👩</div>
-        <div>
-          <div class="author-name">Lakshmi V.</div>
-          <div class="author-area">Scarborough</div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I was skeptical at first but the trial week convinced me immediately. Fresh, healthy, affordable. I've been a customer for 6 months and never looked back."</p>
+        <div class="review-author">
+          <div class="author-avatar">👩</div>
+          <div><div class="author-name">Lakshmi V.</div><div class="author-area">Scarborough</div></div>
         </div>
       </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The best tiffin service in the GTA. My whole family looks forward to the meals every week. The roti is soft and the curries are always perfectly spiced."</p>
+        <div class="review-author">
+          <div class="author-avatar">👨</div>
+          <div><div class="author-name">Rajesh M.</div><div class="author-area">North York</div></div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Affordable, delicious and so convenient. I save so much time not having to cook every day. The 2 day non-veg plan is perfect for our household."</p>
+        <div class="review-author">
+          <div class="author-avatar">👩</div>
+          <div><div class="author-name">Anitha K.</div><div class="author-area">Etobicoke</div></div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Reminds me of my mother's cooking back in Kerala. The coconut based curries are outstanding. Delivery is reliable and the portions are very generous."</p>
+        <div class="review-author">
+          <div class="author-avatar">👨</div>
+          <div><div class="author-name">Suresh N.</div><div class="author-area">Downtown Toronto</div></div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I moved to Toronto 2 years ago and Anupoorna has been a lifesaver. Authentic South Indian food that does not compromise on taste. Highly recommend to anyone missing home food."</p>
+        <div class="review-author">
+          <div class="author-avatar">👩</div>
+          <div><div class="author-name">Deepa R.</div><div class="author-area">Brampton</div></div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Great value for money. $50 a week for 5 days of home cooked food is unbeatable. The dal and kootu are my personal favourites. Will never go back to cooking myself!"</p>
+        <div class="review-author">
+          <div class="author-avatar">👨</div>
+          <div><div class="author-name">Vivek P.</div><div class="author-area">Mississauga</div></div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Ordered for my parents who live in Scarborough and they absolutely love it. The food is fresh, healthy and made with minimal oil. Perfect for older people watching their health."</p>
+        <div class="review-author">
+          <div class="author-avatar">👩</div>
+          <div><div class="author-name">Meena T.</div><div class="author-area">Scarborough</div></div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Been a customer for over a year now. Consistent quality every single week. The WhatsApp ordering is so easy and they are always responsive. Best tiffin service in Toronto."</p>
+        <div class="review-author">
+          <div class="author-avatar">👨</div>
+          <div><div class="author-name">Arjun S.</div><div class="author-area">Midtown Toronto</div></div>
+        </div>
+      </div>
+
     </div>
+  </div>
+
+  <div class="carousel-controls" style="margin-top:36px;">
+    <button class="carousel-btn" id="reviewPrevBtn">&#8592;</button>
+    <div class="carousel-dots" id="reviewDots"></div>
+    <button class="carousel-btn" id="reviewNextBtn">&#8594;</button>
   </div>
 </section>
 
@@ -1466,11 +1559,55 @@
     autoTimer = setInterval(next, 3500);
   }
 
-  resetAuto();
+  // REVIEW CAROUSEL
+  const reviewTrack = document.getElementById('reviewTrack');
+  const reviewCards = reviewTrack.querySelectorAll('.review-card');
+  const reviewDotsContainer = document.getElementById('reviewDots');
+  const reviewPrevBtn = document.getElementById('reviewPrevBtn');
+  const reviewNextBtn = document.getElementById('reviewNextBtn');
+
+  let reviewCurrent = 0;
+  let reviewVisible = window.innerWidth <= 900 ? 1 : 3;
+  const reviewTotal = reviewCards.length;
+  let reviewAutoTimer;
+
+  const reviewDotCount = reviewTotal - reviewVisible + 1;
+  for (let i = 0; i < reviewDotCount; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goToReview(i));
+    reviewDotsContainer.appendChild(dot);
+  }
+
+  function getReviewCardWidth() {
+    return reviewCards[0].getBoundingClientRect().width + 18;
+  }
+
+  function goToReview(index) {
+    const maxIndex = reviewTotal - reviewVisible;
+    reviewCurrent = Math.max(0, Math.min(index, maxIndex));
+    reviewTrack.style.transform = `translateX(-${reviewCurrent * getReviewCardWidth()}px)`;
+    reviewDotsContainer.querySelectorAll('.dot').forEach((d, i) => {
+      d.classList.toggle('active', i === reviewCurrent);
+    });
+  }
+
+  function reviewNext() { goToReview(reviewCurrent + 1 > reviewTotal - reviewVisible ? 0 : reviewCurrent + 1); }
+  function reviewPrev() { goToReview(reviewCurrent - 1 < 0 ? reviewTotal - reviewVisible : reviewCurrent - 1); }
+
+  reviewNextBtn.addEventListener('click', () => { reviewNext(); resetReviewAuto(); });
+  reviewPrevBtn.addEventListener('click', () => { reviewPrev(); resetReviewAuto(); });
+
+  function resetReviewAuto() {
+    clearInterval(reviewAutoTimer);
+    reviewAutoTimer = setInterval(reviewNext, 4000);
+  }
+
+  resetReviewAuto();
 
   window.addEventListener('resize', () => {
-    slidesVisible = window.innerWidth <= 900 ? 1 : 3;
-    goTo(0);
+    reviewVisible = window.innerWidth <= 900 ? 1 : 3;
+    goToReview(0);
   });
 </script>
 </body>
